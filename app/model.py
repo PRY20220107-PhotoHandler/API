@@ -3,26 +3,17 @@ from utils import ensure_checkpoint_exists
 from mapper.scripts.inference import run
 from argparse import Namespace
 from PIL import Image
+import shutil
 
-def hola():
-    os.chdir(f'./StyleCLIP')
+def hola(section):
+    if (os.getcwd()[-3:] != "app"):
+        os.chdir(f'./app')
     meta_data = {
         'afro': ['afro', False, False, True], 
-        'angry': ['angry', False, False, True], 
-        'Beyonce': ['beyonce', False, False, False], 
-        'bobcut': ['bobcut', False, False, True], 
-        'bowlcut': ['bowlcut', False, False, True], 
-        'curly hair': ['curly_hair', False, False, True], 
-        'Hilary Clinton': ['hilary_clinton', False, False, False],
-        'Jhonny Depp': ['depp', False, False, False], 
-        'mohawk': ['mohawk', False, False, True],
-        'purple hair': ['purple_hair', False, False, False], 
-        'surprised': ['surprised', False, False, True], 
-        'Taylor Swift': ['taylor_swift', False, False, False],
-        'trump': ['trump', False, False, False], 
-        'Mark Zuckerberg': ['zuckerberg', False, False, False]    
+        'angry': ['angry', False, False, True],  
+        'surprised': ['surprised', False, False, True],     
     }
-    edit_type = 'afro' #@param ['afro', 'angry', 'Beyonce', 'bobcut', 'bowlcut', 'curly hair', 'Hilary Clinton', 'Jhonny Depp', 'mohawk', 'purple hair', 'surprised', 'Taylor Swift', 'trump', 'Mark Zuckerberg']
+    edit_type = section #@param ['afro', 'angry', 'Beyonce', 'bobcut', 'bowlcut', 'curly hair', 'Hilary Clinton', 'Jhonny Depp', 'mohawk', 'purple hair', 'surprised', 'Taylor Swift', 'trump', 'Mark Zuckerberg']
     edit_id = meta_data[edit_type][0]
     os.makedirs("mapper/pretrained", exist_ok=True)
     ensure_checkpoint_exists(f"mapper/pretrained/{edit_id}.pt")
@@ -54,4 +45,4 @@ def hola():
         result = Image.open(f"results/inference_results/{str(i).zfill(5)}.jpg")
         result = result.resize((int(result.width * 0.5), int(result.height * 0.5)))
         grid.paste(result, (0, int(result.height * i)))
-    return "Hola Mundoo!"
+    shutil.copyfile("./results/inference_results/00000.jpg", "./static/results/00000.jpg")
