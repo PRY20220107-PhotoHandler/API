@@ -1,0 +1,28 @@
+.form-inputs {
+    margin-top: 60px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.title {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.button-container {
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 200px;
+    text-align: center;
+}
+
+.image-text {
+    text-align: center;
+}
+
+.resultImage {
+    width: 100%;
+    height: auto;
+}
+

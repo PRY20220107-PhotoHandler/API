@@ -1,9 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Index</title>
-</head>
-<body>
-    <img src="{{ user_image }}" alt="User Image">
-</body>
-</html>
+{% extends './layout.html' %}
+
+{% block title %}{{data.title}}{% endblock %}
+
+{% block body %}
+<div class="title">
+    <h1>Photo Handler</h1>
+</div>
+<div class="form-inputs col-10 col-lg-6">
+    <div class="mb-3 image-text">
+        <label for="formFile" class="form-label">Se va a utilizar una imagen de Hillary Clinton</label>
+    </div>
+</div>
+<div class="form-inputs col-10 col-lg-6">
+    <div class="mb-3">
+        <label for="textInput" class="form-label">Se necesita una descripción para modificar la imagen de acuerdo a eso</label>
+        <select class="form-select" id="typeSelect">
+            <option value="afro">Peinado afro</option>
+            <option value="angry">Cara molesta</option>
+            <option value="surprised">Cara sorprendida</option>
+        </select>
+    </div>
+</div>
+<div class="button-container">
+    <button type="button" class="btn btn-primary" onclick="getResult()">Obtener imagen editada</button>
+</div>
+{% endblock %}
