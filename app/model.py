@@ -6,6 +6,7 @@ from PIL import Image
 import shutil
 
 def hola(section):
+    print("llego aqui")
     if (os.getcwd()[-3:] != "app"):
         os.chdir(f'./app')
     meta_data = {
@@ -42,6 +43,7 @@ def hola(section):
     grid = Image.new("RGB", (result.width, result.height * n_images))
     grid.paste(result, (0, 0))
     for i in range(1, n_images):
+        print("llego aquii")
         result = Image.open(f"results/inference_results/{str(i).zfill(5)}.jpg")
         result = result.resize((int(result.width * 0.5), int(result.height * 0.5)))
         grid.paste(result, (0, int(result.height * i)))
