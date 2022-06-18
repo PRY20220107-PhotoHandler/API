@@ -9,25 +9,33 @@
 <div id="photo-form">
 <div class="form-inputs col-10 col-lg-6">
     <div class="mb-3">
-        <label for="imageInput" class="form-label">Click to upload image</label>
+        <label for="imageInput" class="form-label">Click para subir la imagen</label>
         <input class="form-control" type="file" id="imageInput">
     </div>
 </div>
 <div class="form-inputs col-10 col-lg-6">
     <div class="mb-3">
-        <label for="typeSelect" class="form-label">A description is needed to modify the image accordingly</label>
-        <input type="text" class="form-control" id="textInput" placeholder="a smiling face">
+        <label for="typeSelect" class="form-label">Se requiere una descripción para modificar la imagen</label>
+        <select class="form-select" id="textInput">
+            <option value="makeup">Maquillaje</option>
+            <option value="smiling face">Cara sonriente</option>
+            <option value="male face">Cara masculina</option>
+            <option value="female face">Cara femenina</option>
+            <option value="face with blonde hair">Cabello rubio</option>
+            <option value="face with Hi-top fade hair">Cabello descolorido Hi-top</option>
+            <option value="face with blue eyes">Ojos azules</option>
+        </select>
     </div>
 </div>
 <div class="button-container">
-    <button type="button" class="btn btn-primary" onclick="getResult()">get edited image</button>
+    <button type="button" class="btn btn-primary" onclick="getResult()">Obtener imagen editada</button>
 </div>
 </div>
 <div id="loading-screen" class="title" style="display:none">
     <br>
     <br>
     <br>
-    <h3>Loading</h3>
+    <h3>Cargando</h3>
 </div>
 <div id="results" style="display:none">
 <div class="d-flex justify-content-center mt-4">
@@ -36,7 +44,7 @@
     </div>
 </div>
 <div class="button-container">
-    <a type="button" class="btn btn-primary" href="http://127.0.0.1:5000/">Go back</a>
+    <a type="button" class="btn btn-primary" href="http://127.0.0.1:5000/">Volver</a>
 </div>
 </div>
 {% endblock %}

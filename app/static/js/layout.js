@@ -17,7 +17,7 @@ function getResult() {
         formdata.append("image", fileInput.files[0], fileInput.value);
         formdata.append("text", strText);
         var requestOptions = { method: 'POST', body: formdata, redirect: 'follow' };
-        fetch("http://a1ae-34-90-22-27.ngrok.io/edit", requestOptions)
+        fetch("http://38fe-34-80-179-88.ngrok.io/edit", requestOptions)
             .then(response => response.text())
             .then(result => showResult(result))
             .catch(error => console.log('error', error));
