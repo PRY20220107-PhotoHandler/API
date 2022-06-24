@@ -27,3 +27,16 @@
     height: auto;
 }
 
+.imageBlock {
+    margin-left:18px;
+    margin-right:18px;
+    margin-top:14px;
+    margin-bottom:14px;
+}
+
+.resultText {
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+}
+

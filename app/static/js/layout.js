@@ -17,7 +17,7 @@ function getResult() {
         formdata.append("image", fileInput.files[0], fileInput.value);
         formdata.append("text", strText);
         var requestOptions = { method: 'POST', body: formdata, redirect: 'follow' };
-        fetch("http://38fe-34-80-179-88.ngrok.io/edit", requestOptions)
+        fetch("http://4256-35-221-242-239.ngrok.io/edit", requestOptions)
             .then(response => response.text())
             .then(result => showResult(result))
             .catch(error => console.log('error', error));
@@ -28,6 +28,7 @@ function getResult() {
 
 function showResult(obj) {
     document.getElementById("loading-screen").style.display = "none";
-    document.getElementById("resultImage").src = JSON.parse(obj).message;
+    document.getElementById("originalImage").src = JSON.parse(obj).original;
+    document.getElementById("resultImage").src = JSON.parse(obj).generated;
     document.getElementById("results").style.display = "block";
 }
